@@ -1,0 +1,79 @@
+*{
+    padding: 0;
+    margin:0;
+
+}
+
+body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    display: flex;
+}
+
+.nav-links{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-links{
+    margin-left: 20px;
+}
+
+.hero{
+    background-image: url("https://uploads.vibra.co/1/2021/02/como-hacer-cafe.png");
+    background-size: cover;
+    background-size: center;
+    text-align: center;
+    color: antiquewhite;
+    padding: 100px 0;
+}
+
+.hero-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero h2{
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.featured-products{
+    padding: 50px;
+    text-align: center;
+}
+
+.product-list{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.product{
+    width: 300px;
+    margin-bottom: 30px;
+}
+
+.product img{
+    width:100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+/*Estilos del pie de pagina*/
+footer{
+    background-color: rgb(140, 106, 76);
+    color:antiquewhite;
+    text-align: center;
+    padding: 10px 0;
+}
