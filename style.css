@@ -1,0 +1,228 @@
+/* Reset y Box Sizing Global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Incluye padding y border en el ancho/alto total del elemento */
+}
+
+/* Estilos de Fuente y Base */
+html {
+    font-size: 16px; /* Tamaño base para rem */
+}
+
+body {
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Navbar con Flexbox Avanzado */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #f4f4f4;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    max-height: 50px;
+    margin-right: 1rem;
+    border: 2px solid #5D4037; 
+    border-radius: 4px; 
+}
+
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem; /* Espaciado uniforme entre elementos */
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #5D4037;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+/* Efecto Hover para Links de Navegación */
+.nav-links a:hover {
+    color: #A1887F;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #A1887F;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("https://uploads.vibra.co/1/2021/02/como-hacer-cafe.png");
+    background-size: cover;
+    background-position: center;
+    color: #ffffff9b;
+    text-align: center;
+    padding: 10rem 2rem;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5); /* Oscurecimiento del fondo */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #A1887F;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.hero-btn:hover {
+    background-color: #8D6E63;
+}
+
+/* Sección de Productos con Flexbox y Grid */
+.featured-products {
+    padding: 4rem 2rem;
+    background-color: #F5F5F5;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    color: #5D4037;
+}
+
+.product-list {
+    display: flex;
+    justify-content:center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.product {
+    background-color: #eddec0;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: calc(33.333% - 2rem);
+    min-width: 250px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.product:hover {
+    transform: scale(1.05);
+}
+
+.product img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border: 2px solid #a4864f; /* Thin brown border for product images */
+    box-sizing: border-box; /* Ensures border doesn't affect layout */
+}
+
+.product-info {
+    padding: 1rem;
+    text-align: center;
+}
+
+.product-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.product-price {
+    font-weight: bold;
+    color: #5D4037;
+}
+
+/* Footer con Flexbox */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #5D4037;
+    color: #FFFFFF;
+    padding: 2rem;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product {
+        width: 100%;
+    }
+}
