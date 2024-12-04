@@ -193,15 +193,96 @@ body {
     color: #5D4037;
 }
 
-/* Footer con Flexbox */
-footer {
+/*Seccion de postres*/
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); /*Responsive*/
+    gap: 30px; /*espaciado*/
+}
+
+.postre img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+  /* Image container */
+  .image-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    margin: 20px;
+  }
+  
+  /* Individual images */
+  .image-container img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  /* Text container */
+  .text-container {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Title */
+  .text-container h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+  }
+  
+  /* Paragraph */
+  .text-container p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #555;
+  }
+.chefs {
+    display: flex;
+    justify-content: space-around;
     align-items: center;
-    background-color: #5D4037;
-    color: #FFFFFF;
-    padding: 2rem;
+    width: 100%;
+    max-width: 900px;
+}
+.chef {
     text-align: center;
+    width: 200px;
+}
+.chef img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+.chef p {
+    margin-top: 10px;
+}
+  
+/*Seccion de postres*/
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); /*Responsive*/
+    gap: 3px; /*espaciado*/
+}
+/*Seccion de personal*/
+.equipo{
+    background-color: antiquewhite;
+}
+.equipo-container{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.miembro{
+    width: 200px;
+    margin-bottom: 35px;
+}
+.miembro img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .footer-content {
@@ -209,6 +290,18 @@ footer {
     flex-direction: column;
     align-items: center;
 }
+
+
+/*Estilos del pie de pagina*/
+footer{
+    background-color: rgb(140, 106, 76);
+    color:antiquewhite;
+    text-align: center;
+    padding: 10px 0;
+}
+  /* Estilos del pie de página */
+  
+
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
