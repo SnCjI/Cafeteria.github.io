@@ -16,13 +16,35 @@ body {
     color: #333;
 }
 
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+}
+
 /* Navbar con Flexbox Avanzado */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: #f4f4f4;
+    background-color: #615454;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
@@ -84,7 +106,7 @@ body {
     background-image: url("https://uploads.vibra.co/1/2021/02/como-hacer-cafe.png");
     background-size: cover;
     background-position: center;
-    color: #ffffff9b;
+    color: #f3f0f0d8;
     text-align: center;
     padding: 10rem 2rem;
     position: relative;
@@ -126,7 +148,7 @@ body {
     display: inline-block;
     padding: 0.75rem 1.5rem;
     background-color: #A1887F;
-    color: #FFFFFF;
+    color: #847878;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
@@ -237,7 +259,7 @@ body {
   .text-container p {
     font-size: 1rem;
     line-height: 1.5;
-    color: #555;
+    color: #e9e2e2;
   }
 .chefs {
     display: flex;
@@ -260,30 +282,167 @@ body {
 }
   
 /*Seccion de postres*/
-.grid-container{
+.grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); /*Responsive*/
-    gap: 3px; /*espaciado*/
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsive */
+    gap: 3px; /* Espaciado */
 }
+
+/* Postre Card Styles */
+.postre, .sandwich {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid var(--dessert-border-color);
+}
+
+.postre:hover, .sandwich:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.postre img, .sandwich img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.postre:hover img, .sandwich:hover img {
+    transform: scale(1.1);
+}
+
+.postre-info, .sandwich-info {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.postre-title, .sandwich-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--sandwich-accent);
+    font-weight: 600;
+}
+
+.postre-description, .sandwich-description {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.postre-price, .sandwich-price {
+    margin-top: 1rem;
+    font-weight: bold;
+    color: var(--sandwich-accent);
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Columnas más grandes para mejor legibilidad */
+        gap: 10px; /* Espaciado más amplio */
+    }
+
+    .postre, .sandwich {
+        padding: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombras más suaves */
+    }
+
+    .postre img, .sandwich img {
+        height: 200px; /* Reducir altura de las imágenes */
+    }
+
+    .postre-info, .sandwich-info {
+        padding: 1rem; /* Reducir padding interno */
+    }
+
+    .postre-title, .sandwich-title {
+        font-size: 1rem; /* Reducir tamaño del título */
+    }
+
+    .postre-description, .sandwich-description {
+        font-size: 0.8rem; /* Reducir texto descriptivo */
+    }
+
+    .postre-price, .sandwich-price {
+        font-size: 1rem; /* Ajustar tamaño del precio */
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* Una columna para pantallas muy pequeñas */
+    }
+
+    .postre img, .sandwich img {
+        height: 180px; /* Ajustar tamaño de la imagen */
+    }
+
+    .postre-title, .sandwich-title {
+        font-size: 0.9rem; /* Reducir más el título */
+    }
+
+    .postre-description, .sandwich-description {
+        font-size: 0.75rem; /* Reducir más la descripción */
+    }
+
+    .postre-price, .sandwich-price {
+        font-size: 0.9rem; /* Ajustar tamaño del precio */
+    }
+}
+
 /*Seccion de personal*/
-.equipo{
-    background-color: antiquewhite;
+.equipo {
+    background-color: var(--background-light);
+    padding: 4rem 2rem;
 }
-.equipo-container{
-    display: flex;
+
+
+section {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+
+body {
+    font-family: Nunito, Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--white);
+}
+
+
+.equipo-container {
+    display: flex; /* Add this line */
     justify-content: space-around;
     flex-wrap: wrap;
+    gap: 2rem;
 }
+
 .miembro{
-    width: 200px;
+    text-align: center;
+    width: 250px;
     margin-bottom: 35px;
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
 }
-.miembro img{
-    width: 150px;
-    height: 150px;
+.miembro img {
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     object-fit: cover;
+    border: 4px ; 
+    transition: transform 0.3s ease;
 }
+
+.miembro:hover img {
+    transform: scale(1.05);
+}
+
 
 .footer-content {
     display: flex;
@@ -320,19 +479,21 @@ footer{
     }
 }
 
-
 /*Estilos del pie de pagina*/
 footer{
     background-color: rgb(140, 106, 76);
     color:antiquewhite;
     text-align: center;
     padding: 10px 0;
+    width: 100%;
 }
 
 .footer-container{
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .social-media{
@@ -371,36 +532,121 @@ footer{
     cursor: pointer;
 }
 
-.sandwiches{
+/* General container for the cards */
+.card {
+    max-width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+  
+/* Image styles */
+.card img {
+    width: 100%;
+    aspect-ratio: 4/3; /* Mantener proporción 4:3 */
+    object-fit: cover;
+    border-bottom: 1px solid #ccc;
+}
+  
+/* Title styles */
+.card .title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0 5px 0;
+}
+  
+/* Description styles */
+.card .description {
+    font-size: 14px;
+    color: #666;
+    margin: 0 10px 10px 10px;
+}
+  
+/* Example layout for multiple cards */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adaptable a diferentes tamaños */
+    gap: 20px; /* Espaciado entre tarjetas */
+    padding: 50px;
+}
+
+.sandwiches {
     padding: 50px;
     text-align: center;
 }
 
-.grid-sandwich{
+.grid-sandwich {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /*4 Columnas de igual tamaño*/
-    grid-template-rows: repeat(2, 260px);/*2 Filas de 250px*/
-    gap: 20px; /*Espaciado entre cajitas*/
+    grid-template-columns: repeat(4, 1fr); /* 4 Columnas de igual tamaño */
+    grid-template-rows: repeat(2, 260px); /* 2 Filas de 250px */
+    gap: 20px; /* Espaciado entre cajitas */
     grid-template-areas: 
     "sandwich1 sandwich1 sandwich2 sandwich3"
     "sandwich1 sandwich1 sandwich4 sandwich5";
 }
 
-.sandwich{
+/* Individual card styles */
+.sandwich {
     border: 1px solid gray;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.sandwich img{
+.sandwich img {
     width: 100%;
-    height: 150px;
+    height: 150px; /* Mantener proporción */
     object-fit: cover;
     margin-bottom: 10px;
 }
 
-/*Asignar areas a los sandwiches*/ 
+/* Assign areas to the sandwiches if grid layout is needed */
 .sandwich:nth-child(1) {grid-area: sandwich1;}
 .sandwich:nth-child(2) {grid-area: sandwich2;}
 .sandwich:nth-child(3) {grid-area: sandwich3;}
 .sandwich:nth-child(4) {grid-area: sandwich4;}
 .sandwich:nth-child(5) {grid-area: sandwich5;}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .cards-container {
+        grid-template-columns: 1fr; /* Una tarjeta por fila */
+        gap: 15px; /* Reducir espacio entre tarjetas */
+    }
+
+    .grid-sandwich {
+        grid-template-columns: 1fr; /* Una columna */
+        grid-template-rows: auto; /* Ajustar automáticamente la altura */
+        grid-template-areas: 
+        "sandwich1"
+        "sandwich2"
+        "sandwich3"
+        "sandwich4"
+        "sandwich5";
+    }
+
+    .card {
+        margin: 0 auto; /* Centrar tarjetas */
+        width: 90%; /* Reducir el ancho */
+    }
+
+    .card .title {
+        font-size: 16px; /* Reducir tamaño de fuente */
+    }
+
+    .card .description {
+        font-size: 12px; /* Reducir tamaño de fuente */
+    }
+
+    .sandwich img {
+        height: auto; /* Permitir altura dinámica */
+    }
+}
