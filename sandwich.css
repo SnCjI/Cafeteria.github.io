@@ -1,0 +1,160 @@
+/* Fuentes e importaciones */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700&display=swap');
+
+/* Paleta de colores café */
+:root {
+    --color-fondo: #F5E6D3;
+    --color-cafe-claro: #A0522D;
+    --color-cafe-medio: #8B4513;
+    --color-cafe-oscuro: #5D3A1A;
+    --color-cafe-muy-oscuro: #3E2723;
+    --color-texto-primario: #3E2723;
+    --color-texto-secundario: #6D4C41;
+    --color-precio: #4E342E;
+}
+
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto Slab', serif;
+    line-height: 1.6;
+    background-color: var(--color-fondo);
+    color: var(--color-texto-primario);
+}
+
+/* Sección del menú de sándwiches */
+.menu-sandwiches {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.menu-sandwiches h1 {
+    text-align: center;
+    color: var(--color-cafe-oscuro);
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    border-bottom: 3px solid var(--color-cafe-medio);
+    padding-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Contenedor de sándwiches */
+.sandwich-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+/* Estilos para cada caja de sándwich */
+.box-1, .box-2, .box-3, .box-4 {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(93, 58, 26, 0.15);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 2px solid var(--color-cafe-claro);
+}
+
+.box-1:hover, .box-2:hover, .box-3:hover, .box-4:hover {
+    transform: scale(1.035);
+    box-shadow: 0 8px 16px rgba(93, 58, 26, 0.2);
+}
+
+/* Imágenes de sándwiches */
+.sandwich-imagen {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: all 0.3s ease;
+    filter: sepia(20%);
+}
+
+.box-1:hover .sandwich-imagen, 
+.box-2:hover .sandwich-imagen, 
+.box-3:hover .sandwich-imagen, 
+.box-4:hover .sandwich-imagen {
+    filter: sepia(0%);
+    opacity: 0.9;
+}
+
+/* Información del sándwich */
+.sandwich-info {
+    padding: 1.5rem;
+    background: linear-gradient(to right, rgba(245, 230, 211, 0.1), rgba(245, 230, 211, 0.3));
+}
+
+.sandwich-nombre {
+    color: var(--color-cafe-oscuro);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-cafe-medio);
+    padding-bottom: 0.3rem;
+    font-weight: 600;
+}
+
+.sandwich-descripcion {
+    color: var(--color-texto-secundario);
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.sandwich-precio {
+    font-weight: bold;
+    color: var(--color-precio);
+    font-size: 1.2rem;
+    text-align: right;
+    background-color: rgba(160, 82, 45, 0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .sandwich-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Animaciones sutiles */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.box-1, .box-2, .box-3, .box-4 {
+    animation: fadeIn 0.5s ease forwards;
+    opacity: 0;
+    animation-delay: calc(0.2s * var(--i));
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-fondo);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-cafe-medio);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-cafe-oscuro);
+}

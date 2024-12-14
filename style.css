@@ -1,73 +1,482 @@
-*{
+/* Reset y Box Sizing Global */
+* {
+    margin: 0;
     padding: 0;
-    margin:0;
-
+    box-sizing: border-box; /* Incluye padding y border en el ancho/alto total del elemento */
 }
 
-body{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+/* Estilos de Fuente y Base */
+html {
+    font-size: 16px; /* Tamaño base para rem */
 }
 
-.navbar{
+body {
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Navbar con Flexbox Avanzado */
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    display: flex;
+    padding: 1rem 2rem;
+    background-color: #615454;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.nav-links{
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    max-height: 50px;
+    margin-right: 1rem;
+    border: 2px solid #5D4037; 
+    border-radius: 4px; 
+}
+
+
+.nav-links {
+    display: flex;
     list-style: none;
-    margin: 0;
-    padding: 0;
+    gap: 1.5rem; /* Espaciado uniforme entre elementos */
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #5D4037;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+/* Efecto Hover para Links de Navegación */
+.nav-links a:hover {
+    color: #A1887F;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #A1887F;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+.hero {
     display: flex;
-}
-
-.nav-links{
-    margin-left: 20px;
-}
-
-.hero{
+    justify-content: center;
+    align-items: center;
     background-image: url("https://uploads.vibra.co/1/2021/02/como-hacer-cafe.png");
     background-size: cover;
-    background-size: center;
+    background-position: center;
+    color: #f3f0f0d8;
     text-align: center;
-    color: antiquewhite;
-    padding: 100px 0;
+    padding: 10rem 2rem;
+    position: relative;
 }
 
-.hero-content{
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5); /* Oscurecimiento del fondo */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #A1887F;
+    color: #847878;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.hero-btn:hover {
+    background-color: #8D6E63;
+}
+
+/* Sección de Productos con Flexbox y Grid */
+.featured-products {
+    padding: 4rem 2rem;
+    background-color: #F5F5F5;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    color: #5D4037;
+}
+
+.product-list {
+    display: flex;
+    justify-content:center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.product {
+    background-color: #eddec0;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: calc(33.333% - 2rem);
+    min-width: 250px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.product:hover {
+    transform: scale(1.05);
+}
+
+.product img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border: 2px solid #a4864f; /* Thin brown border for product images */
+    box-sizing: border-box; /* Ensures border doesn't affect layout */
+}
+
+.product-info {
+    padding: 1rem;
+    text-align: center;
+}
+
+.product-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.product-price {
+    font-weight: bold;
+    color: #5D4037;
+}
+
+/*Seccion de postres*/
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); /*Responsive*/
+    gap: 30px; /*espaciado*/
+}
+
+.postre img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+  /* Image container */
+  .image-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+  }
+  
+  /* Individual images */
+  .image-container img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  /* Text container */
+  .text-container {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Title */
+  .text-container h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+  }
+  
+  /* Paragraph */
+  .text-container p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #e9e2e2;
+  }
+.chefs {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
+}
+.chef {
+    text-align: center;
+    width: 200px;
+}
+.chef img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+.chef p {
+    margin-top: 10px;
+}
+  
+/*Seccion de postres*/
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsive */
+    gap: 3px; /* Espaciado */
+}
+
+/* Postre Card Styles */
+.postre, .sandwich {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid var(--dessert-border-color);
+}
+
+.postre:hover, .sandwich:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.postre img, .sandwich img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.postre:hover img, .sandwich:hover img {
+    transform: scale(1.1);
+}
+
+.postre-info, .sandwich-info {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.postre-title, .sandwich-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--sandwich-accent);
+    font-weight: 600;
+}
+
+.postre-description, .sandwich-description {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.postre-price, .sandwich-price {
+    margin-top: 1rem;
+    font-weight: bold;
+    color: var(--sandwich-accent);
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Columnas más grandes para mejor legibilidad */
+        gap: 10px; /* Espaciado más amplio */
+    }
+
+    .postre, .sandwich {
+        padding: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombras más suaves */
+    }
+
+    .postre img, .sandwich img {
+        height: 200px; /* Reducir altura de las imágenes */
+    }
+
+    .postre-info, .sandwich-info {
+        padding: 1rem; /* Reducir padding interno */
+    }
+
+    .postre-title, .sandwich-title {
+        font-size: 1rem; /* Reducir tamaño del título */
+    }
+
+    .postre-description, .sandwich-description {
+        font-size: 0.8rem; /* Reducir texto descriptivo */
+    }
+
+    .postre-price, .sandwich-price {
+        font-size: 1rem; /* Ajustar tamaño del precio */
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* Una columna para pantallas muy pequeñas */
+    }
+
+    .postre img, .sandwich img {
+        height: 180px; /* Ajustar tamaño de la imagen */
+    }
+
+    .postre-title, .sandwich-title {
+        font-size: 0.9rem; /* Reducir más el título */
+    }
+
+    .postre-description, .sandwich-description {
+        font-size: 0.75rem; /* Reducir más la descripción */
+    }
+
+    .postre-price, .sandwich-price {
+        font-size: 0.9rem; /* Ajustar tamaño del precio */
+    }
+}
+
+/*Seccion de personal*/
+.equipo {
+    background-color: var(--background-light);
+    padding: 4rem 2rem;
+}
+
+
+section {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+
+body {
+    font-family: Nunito, Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--white);
+}
+
+
+.equipo-container {
+    display: flex; /* Add this line */
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.miembro{
+    text-align: center;
+    width: 250px;
+    margin-bottom: 35px;
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+.miembro img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px ; 
+    transition: transform 0.3s ease;
+}
+
+.miembro:hover img {
+    transform: scale(1.05);
+}
+
+
+.footer-content {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.hero h2{
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
 
-.featured-products{
-    padding: 50px;
+/*Estilos del pie de pagina*/
+footer{
+    background-color: rgb(140, 106, 76);
+    color:antiquewhite;
     text-align: center;
+    padding: 10px 0;
 }
+  /* Estilos del pie de página */
+  
 
-.product-list{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
 
-.product{
-    width: 300px;
-    margin-bottom: 30px;
-}
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+    }
 
-.product img{
-    width:100%;
-    height: 200px;
-    object-fit: cover;
-    margin-bottom: 10px;
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product {
+        width: 100%;
+    }
 }
 
 /*Estilos del pie de pagina*/
@@ -76,4 +485,168 @@ footer{
     color:antiquewhite;
     text-align: center;
     padding: 10px 0;
+    width: 100%;
+}
+
+.footer-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-media{
+    margin-bottom: 25px;
+}
+
+.social-media a{ /*Enlaces*/
+    /*Colores y tamaño de mis iconos*/
+    color:rgb(158, 65, 25);
+    margin: 0 10px;
+    font-size: 24px;
+}
+
+.newsletter{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.newsletter h3{
+    margin-bottom: 20px;
+}
+
+.newsletter input[type="email"]{
+    padding: 8px;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.newsletter button[type="submit"]{
+    background-color: rgb(143, 189, 73);
+    color:white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* General container for the cards */
+.card {
+    max-width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+  
+/* Image styles */
+.card img {
+    width: 100%;
+    aspect-ratio: 4/3; /* Mantener proporción 4:3 */
+    object-fit: cover;
+    border-bottom: 1px solid #ccc;
+}
+  
+/* Title styles */
+.card .title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0 5px 0;
+}
+  
+/* Description styles */
+.card .description {
+    font-size: 14px;
+    color: #666;
+    margin: 0 10px 10px 10px;
+}
+  
+/* Example layout for multiple cards */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adaptable a diferentes tamaños */
+    gap: 20px; /* Espaciado entre tarjetas */
+    padding: 50px;
+}
+
+.sandwiches {
+    padding: 50px;
+    text-align: center;
+}
+
+.grid-sandwich {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 Columnas de igual tamaño */
+    grid-template-rows: repeat(2, 260px); /* 2 Filas de 250px */
+    gap: 20px; /* Espaciado entre cajitas */
+    grid-template-areas: 
+    "sandwich1 sandwich1 sandwich2 sandwich3"
+    "sandwich1 sandwich1 sandwich4 sandwich5";
+}
+
+/* Individual card styles */
+.sandwich {
+    border: 1px solid gray;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sandwich img {
+    width: 100%;
+    height: 150px; /* Mantener proporción */
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+/* Assign areas to the sandwiches if grid layout is needed */
+.sandwich:nth-child(1) {grid-area: sandwich1;}
+.sandwich:nth-child(2) {grid-area: sandwich2;}
+.sandwich:nth-child(3) {grid-area: sandwich3;}
+.sandwich:nth-child(4) {grid-area: sandwich4;}
+.sandwich:nth-child(5) {grid-area: sandwich5;}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .cards-container {
+        grid-template-columns: 1fr; /* Una tarjeta por fila */
+        gap: 15px; /* Reducir espacio entre tarjetas */
+    }
+
+    .grid-sandwich {
+        grid-template-columns: 1fr; /* Una columna */
+        grid-template-rows: auto; /* Ajustar automáticamente la altura */
+        grid-template-areas: 
+        "sandwich1"
+        "sandwich2"
+        "sandwich3"
+        "sandwich4"
+        "sandwich5";
+    }
+
+    .card {
+        margin: 0 auto; /* Centrar tarjetas */
+        width: 90%; /* Reducir el ancho */
+    }
+
+    .card .title {
+        font-size: 16px; /* Reducir tamaño de fuente */
+    }
+
+    .card .description {
+        font-size: 12px; /* Reducir tamaño de fuente */
+    }
+
+    .sandwich img {
+        height: auto; /* Permitir altura dinámica */
+    }
 }
